@@ -5,7 +5,10 @@ Drone Car controlled by WiFi
 
 Purpose is to leverage IoT spare to pilot an old car model 1/10th.
 
-# BOM
+(this repo serves more as notes than tutorial or full project description)
+
+
+## BOM
 
 * Some RC car where radio will be deprecated by custom receiver :-)
 
@@ -17,5 +20,53 @@ Purpose is to leverage IoT spare to pilot an old car model 1/10th.
 * [Arduino Nano x2](http://www.ebay.fr/sch/i.html?_from=R40&_trksid=p2047675.m570.l1313.TR6.TRC1.A0.H0.Xarduino+nano.TRS0&_nkw=arduino+nano&_sacat=0)
 
 ![Arduino Nano](res/arduino-nano.jpg)
+
+
+## Story
+
+### Discover nrf24l01 - example tx/rx
+
+
+If you need full understanding of what is nRF24L01, follow guides in [References](#references) for simple sketches.
+
+These are copied under [nRF24L01 basic examples](references/01-discover-rf24)
+
+
+### Discover servos - example move servos
+
+My Sanwa servos seems very old, not same pinout that others!
+
+![Sanwa](res/sanwa-servo.jpg)
+
+Anyway, keep in mind the discrepency!
+
+The pin layout was as follows:
+* Pin1 = Signal
+* Pin2 = Neg -
+* Pin3 = Pos +
+
+Most pin layout is now:
+* Pin1 = Signal
+* Pin2 = Pos +
+* Pin3 Neg -
+
+Just *hook signal to digital pin of arduino nano* and use sketch such as default arduino [servo sketch](references/02-discover-servos)
+
+
+## References
+
+
+Googling nRF24L01:
+
+* [Nrf24L01 How-To](https://arduino-info.wikispaces.com/Nrf24L01-2.4GHz-HowTo#lib)
+
+* [Bare Minimum example](https://arduino-info.wikispaces.com/Nrf24L01-2.4GHz-ExampleSketches#bm1)
+
+* [nRF24L01 simple scketch](http://www.elec-cafe.com/multiple-nodes-nrf24l01-wireless-temperature-ds18b20-with-arduino-uno-2-transmitter-1-receiver/)
+
+
+Googling servos:
+
+* [Sanwa SM-635 pins](http://www.rcmf.co.uk/4um/rc-radio-gear/sanwa-servo-wiring/)
 
 

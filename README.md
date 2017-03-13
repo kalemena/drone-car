@@ -50,8 +50,26 @@ Most pin layout is now:
 * Pin2 = Pos +
 * Pin3 Neg -
 
-Just *hook signal to digital pin of arduino nano* and use sketch such as default arduino [servo sketch](references/02-discover-servos)
+Just *hook each PWM signal to digital pin of arduino nano* and use sketch such as default arduino [servo sketch](references/02-discover-servos)
 
+
+### Remote controlling
+
+Creating rx/tx sketches together with the 2 arduino nano with radio.
+
+Below is my 25 year old RC car upgraded prototype:
+
+![Controller](res/breadboard-controller.png)
+
+![Car receiver](res/breadboard-receiver.png)
+
+Once plugged, you can use arduino IDE to send value(s) for each PWM to the receiver which will apply.
+
+I used only 1 PWM to calibrate and result of *Calibration* shows below integers:
+* *direction* = 60 to 120 with straight ~90 
+* *speed* = 30 to 160 with stop ~95
+  95 to 160 : backward faster and faster
+  95 to 30  : forward faster and faster
 
 ## References
 

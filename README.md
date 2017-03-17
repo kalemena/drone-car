@@ -65,7 +65,7 @@ Below is my 25 year old RC car upgraded prototype:
 
 Once plugged, you can use arduino IDE to send value(s) for each PWM to the receiver which will apply.
 
-[Test sketches](src/00-nrf24)
+[Test sketches](src/00-rc-nrf24)
 
 I used only 1 PWM to calibrate and result of *Calibration* shows below integers:
 * *direction* = 60 to 120 with straight ~90 

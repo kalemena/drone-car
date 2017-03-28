@@ -22,7 +22,7 @@ Purpose is to leverage IoT spare to pilot an old car model 1/10th.
 ![Arduino Nano](res/arduino-nano.jpg)
 
 
-## Story
+## Stories
 
 ### Discover nrf24l01 - example tx/rx
 

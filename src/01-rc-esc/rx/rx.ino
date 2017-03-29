@@ -7,7 +7,7 @@
 #include "RF24.h"
 #include <Servo.h>
 
-#define DEBUG false
+#define DEBUG true
 #define Serial if(DEBUG)Serial
 
 RF24 radio (7, 8);
@@ -16,7 +16,12 @@ Servo servo_speed;
 
 byte addresses[][6] = { "1Node" };
 
-uint8_t data[2];
+struct radioControl {
+  uint8_t dir;
+  uint8_t speed;
+};
+radioControl data, lastData;
+
 int cycle = 0;
 
 void setup()
@@ -25,8 +30,8 @@ void setup()
   delay(1000);
   Serial.println(F("RF24/Receiver Test"));
 
-  servo_dir.attach(5);
-  servo_speed.attach(9);
+  servo_dir.attach(9);
+  servo_speed.attach(5);
 
   radio.begin();
   radio.setChannel(108);
@@ -45,7 +50,6 @@ void setup()
   servo_dir.write(90);
 }
 
-uint8_t lastData[2];
 unsigned long stopped_at = 0;
 void loop()
 {  
@@ -63,32 +67,32 @@ void loop()
     radio.read( &data, sizeof(data) );
 
     char buf[256];
-    sprintf(buf, "Dir = %3d->%3d - Speed = %3d->%3d - Cycle = %3d\n", lastData[0], data[0], lastData[1], data[1], cycle++);
+    sprintf(buf, "Dir = %3d->%3d - Speed = %3d->%3d - Cycle = %3d\n", lastData.dir, data.dir, lastData.speed, data.speed, cycle++);
     Serial.print(buf);
 
     // direction
-    if(lastData[0] != data[0]) {
-      servo_dir.write(data[0]);
-      lastData[0] = data[0];    
-      delay(25 * abs(lastData[0]-data[0]));
+    if(lastData.dir != data.dir) {
+      servo_dir.write(data.dir);
+      lastData.dir = data.dir;    
+      delay(25 * abs(lastData.dir-data.dir));
     }
 
     // speed
-    if(lastData[1] != data[1]) {
+    if(lastData.speed != data.speed) {
 
       // stop / backward
-      if(data[1] <= 90 && lastData[1] > 90) {
+      if(data.speed <= 90 && lastData.speed > 90) {
         stopped_at = micros() / 1000;
         Serial.print("stopped at "); Serial.println(stopped_at);
       }
 
-      if(data[1] < 86) {
+      if(data.speed < 86) {
         // backward
 
         // let 1000ms before going back
         if (((micros() /1000) - stopped_at) > 1000 ) 
         {
-          servo_speed.write(data[1]);
+          servo_speed.write(data.speed);
         } 
         else
         {
@@ -98,10 +102,10 @@ void loop()
       else
       {
         // forward
-        servo_speed.write(data[1]);
+        servo_speed.write(data.speed);
       }
       
-      lastData[1] = data[1];
+      lastData.speed = data.speed;
       delay(10);
     }
   }

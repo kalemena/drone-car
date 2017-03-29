@@ -12,11 +12,16 @@
 RF24 radio(7, 8); 
 byte addresses[][6] = { "1Node" };
 
-uint8_t data[2];
-uint8_t lastData[2];
+struct radioControl {
+  uint8_t dir;
+  uint8_t speed;
+};
 
-int dir_pin=6;
-int speed_pin=7;
+radioControl data, lastData;
+
+int dir_pin=1;
+int speed_pin=0;
+boolean switch_pin=2;
 
 void setup()
 {
@@ -24,8 +29,11 @@ void setup()
   delay(1000);
   Serial.println(F("RF24/Controller Test"));
 
-  data[0] = 90; // center
-  data[1] = 95; // stop
+  data.dir = 90; // center
+  data.speed = 95; // stop
+
+  pinMode(switch_pin, INPUT);
+  digitalWrite(switch_pin, HIGH);
   
   radio.begin();
   radio.setChannel(108);
@@ -44,21 +52,23 @@ unsigned long send_at = 0;
 void loop()
 {
   int val = analogRead(dir_pin);
-  data[0] = map(val, 0, 1023, 60, 119);
+  data.dir = map(val, 0, 1023, 119, 60);
 
   val = analogRead(speed_pin);
-  data[1] = map(val, 0, 1023, 30, 160);
+  data.speed = map(val, 0, 1023, 60, 120);
+
+  boolean switchVal = digitalRead(switch_pin);
       
-  if(lastData[0] < (data[0]-1) || lastData[1] < (data[1]-1)
-    || lastData[0] > (data[0]+1) || lastData[1] > (data[1]+1)
+  if(lastData.speed < (data.speed-1) || lastData.dir < (data.dir-1)
+    || lastData.speed > (data.speed+1) || lastData.dir > (data.dir+1)
     || ((micros()/1000) - send_at > 500 ) ) {
       
     radio.write( &data, sizeof(data) );
-    lastData[0] = data[0];
-    lastData[1] = data[1];
+    lastData.dir = data.dir;
+    lastData.speed = data.speed;
 
     char buf[256];
-    sprintf(buf, "Dir = %3d - Speed = %3d\n", data[0], data[1]);
+    sprintf(buf, "Dir = %3d - Speed = %3d - Switch = %d\n", data.dir, data.speed, switchVal);
     Serial.print(buf);
 
     send_at = micros() / 1000;

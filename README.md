@@ -29,12 +29,12 @@ Purpose is to leverage IoT spare to pilot an old car model 1/10th.
 
 If you need full understanding of what is nRF24L01, follow guides in [References](#references) for simple sketches.
 
-These are copied under [nRF24L01 basic examples](references/01-discover-rf24)
+Here are skectehs copied under [nRF24L01 basic examples folder](references/01-discover-rf24)
 
 
 ### Discover servos - example move servos
 
-My Sanwa servos seems very old, not same pinout that others!
+My Sanwa servos seems very old, not same pinout than others!
 
 ![Sanwa](res/sanwa-servo.jpg)
 

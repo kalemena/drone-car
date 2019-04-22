@@ -87,3 +87,8 @@ Googling servos:
 * http://www.rcmf.co.uk/4um/rc-radio-gear/sanwa-servo-wiring/[Sanwa SM-635 pins]
 
 
+3D Printed RC Car V3
+
+https://www.thingiverse.com/thing:3546277
+
+https://www.youtube.com/watch?v=fneoYrtdVjo

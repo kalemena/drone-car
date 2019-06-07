@@ -83,7 +83,7 @@ This is what is done under link:src/00-discover-radio[FlySky receiver on Arduino
 
 What this takes is the link:https://npm.pkg.github.com/utkudarilmaz/FlySkyiBus[FlySky iBus Arduino lib] and the example code.
 
-image:res/FS-iA6B-to-arduino.png[FlySky receiver on Arduino]
+image:/res/FS-iA6B-to-arduino.png[FlySky receiver on Arduino]
 
 == References
 

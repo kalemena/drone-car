@@ -87,10 +87,22 @@ image:/res/FS-iA6B-to-arduino.png[FlySky receiver on Arduino]
 
 == References
 
+=== Nrf24L01
+
 * link:https://arduino-info.wikispaces.com/Nrf24L01-2.4GHz-HowTo#lib[Nrf24L01 How-To]
 * link:https://arduino-info.wikispaces.com/Nrf24L01-2.4GHz-ExampleSketches#bm1[Bare Minimum example]
 * link:http://www.elec-cafe.com/multiple-nodes-nrf24l01-wireless-temperature-ds18b20-with-arduino-uno-2-transmitter-1-receiver/[nRF24L01 simple scketch]
-* link:http://www.rcmf.co.uk/4um/rc-radio-gear/sanwa-servo-wiring/[Sanwa SM-635 pins]
+
+=== Protocols
+
 * link:https://npm.pkg.github.com/utkudarilmaz/FlySkyiBus[FlySky iBus Arduino lib]
+* link:https://github.com/cloud-rocket/flysky-arduino-transmitter[FlySky arduino transmitter]
+* link:https://www.ordinoscope.net/index.php/Mod%C3%A9lisme/Hardware/T%C3%A9l%C3%A9commande/FrSky/Emetteur_multi-protocole[Emitter]
+* link:https://github.com/debianmaster/RC-Control-Station[Arduino A7105]
+
+
+=== Other
+
+* link:http://www.rcmf.co.uk/4um/rc-radio-gear/sanwa-servo-wiring/[Sanwa SM-635 pins]
 * link:https://www.thingiverse.com/thing:3546277[3D Printed RC Car V3]
 * link:https://www.youtube.com/watch?v=fneoYrtdVjo[3D Printed RC Car V3 video]

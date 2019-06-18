@@ -18,7 +18,7 @@ void loop() {
 
     iBus.read_serial();
 
-    for(i=0; i<10; i++){
+    for(i=0; i<14; i++){
         Serial.print(iBus.get_channel(i), DEC);
         Serial.print("\t");
     }

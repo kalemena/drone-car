@@ -87,6 +87,10 @@ image:/res/FS-iA6B-to-arduino.png[FlySky receiver on Arduino]
 
 == References
 
+=== Donkey Car
+
+link:https://custom-build-robots.com/raspberry-pi-robot-cars/autonomously-driving-nvidia-jetson-nano-ai-robot-car-preparation/12133?lang=en[Donkey Car + Jetson Nano]
+
 === Nrf24L01
 
 * link:https://arduino-info.wikispaces.com/Nrf24L01-2.4GHz-HowTo#lib[Nrf24L01 How-To]
@@ -112,3 +116,4 @@ image:/res/FS-iA6B-to-arduino.png[FlySky receiver on Arduino]
 * link:https://www.youtube.com/watch?v=fneoYrtdVjo[3D Printed RC Car V3 video]
 
 * link:https://www.metacar-project.com/[Metacar]
+
